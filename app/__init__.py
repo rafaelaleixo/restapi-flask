@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
-app.config.from_object('config')
+app.config.from_object("config")
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 jwt = JWTManager(app)
@@ -18,4 +18,3 @@ def create_tables():
 from .models import users, posts, commentaries
 from .views import users, helper
 from .routes import routes
-

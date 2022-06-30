@@ -17,44 +17,44 @@ def protected():
     return jsonify(logged_in_as=current_user), 200
 
 
-
-@app.route('/v1', methods=['GET'])
+@app.route("/v1", methods=["GET"])
 @jwt_required()
 def root(current_user):
-    return jsonify({'message': f'Hello {current_user.name}'})
+    return jsonify({"message": f"Hello {current_user.name}"})
 
 
-@app.route('/v1/authenticate', methods=['POST'])
+@app.route("/v1/authenticate", methods=["POST"])
 def authenticate():
     # return helper.auth()
     return helper.login()
 
 
-@app.route('/v1/users', methods=['GET'])
+@app.route("/v1/users", methods=["GET"])
 @jwt_required()
 def get_users():
     return users.get_users()
 
 
-@app.route('/v1/users/<id>', methods=['GET'])
+@app.route("/v1/users/<id>", methods=["GET"])
 def get_user(id):
     return users.get_user(id)
 
 
-@app.route('/v1/users', methods=['POST'])
+@app.route("/v1/users", methods=["POST"])
 def post_users():
     return users.post_user()
 
 
-@app.route('/v1/users/<id>', methods=['DELETE'])
+@app.route("/v1/users/<id>", methods=["DELETE"])
 def delete_users(id):
     return users.delete_user(id)
 
 
-@app.route('/v1/users/<id>', methods=['PUT'])
+@app.route("/v1/users/<id>", methods=["PUT"])
 def update_users(id):
     return users.update_user(id)
 
-@app.route('/v1/auth', methods=['POST'])
+
+@app.route("/v1/auth", methods=["POST"])
 def auth():
     pass
