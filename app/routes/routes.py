@@ -31,7 +31,7 @@ def authenticate():
 
 
 @app.route('/v1/users', methods=['GET'])
-@helper.token_required
+@jwt_required()
 def get_users():
     return users.get_users()
 
